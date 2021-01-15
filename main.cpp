@@ -1,7 +1,8 @@
 #include <iostream>
 #include "helpers.h"
 
-enum class Options {
+enum Options {
+    Exit,
     InitializeList,
     AddNewItem,
     RemoveAllNodesWithString,
@@ -10,30 +11,29 @@ enum class Options {
     RemoveDuplicates,
     Replace,
     Sort,
-    Destroy,
-    Exit
+    Destroy
 };
 
 int main() {
     char** list = NULL;
-    Options option;
-    std::string choice;
     bool condition{true};
+    std::string choice;
+    int option{0};
     while (condition) {
-        std::cout << "0 - Create new list \n" \
-                     "1 - Add a new node \n" \
-                     "2 - Remove all occurrences of string in the list\n" \
-                     "3 - Return the number of items in the list\n" \
-                     "4 - Return the index position of the string\n" \
-                     "5 - Removes duplicates from the list\n" \
-                     "6 - Replace the part of the string\n" \
-                     "7 - Sort the list\n" \
-                     "8 - Destroy list\n" \
-                     "9 - Exit\n";
+        std::cout << "1 - Create new list \n" \
+                     "2 - Add a new node \n" \
+                     "3 - Remove all occurrences of string in the list\n" \
+                     "4 - Return the number of items in the list\n" \
+                     "5 - Return the index position of the string\n" \
+                     "6 - Removes duplicates from the list\n" \
+                     "7 - Replace the part of the string\n" \
+                     "8 - Sort the list\n" \
+                     "9 - Destroy list\n" \
+                     "0 - Exit\n";
 
         std::cout << "Please, enter your choice: ";
         getline(std::cin, choice);
-        option  = static_cast<Options>(std::stoi(choice));
+        option = std::stoi(choice);
 
         switch (option) {
             case Options::InitializeList: StringInitListHelper(&list); break;

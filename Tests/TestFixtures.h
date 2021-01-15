@@ -1,6 +1,6 @@
 #ifndef GOOGLE_TESTS_TESTFIXTURES_H
 #define GOOGLE_TESTS_TESTFIXTURES_H
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 #include "../LinkedList.h"
 
 

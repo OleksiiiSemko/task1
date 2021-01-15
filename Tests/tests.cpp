@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <memory>
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 #include "../LinkedList.h"
 #include "TestFixtures.h"
 
