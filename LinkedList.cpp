@@ -1,18 +1,16 @@
 #include <stdlib.h>
 #include <string.h>
+#include "LinkedList.h"
 
-void StringListInit(char*** list);
-void StringListDestroy(char*** list);
-void StringListAdd(char** list, char* str);
-void StringListRemove(char*** list, char* str);
-int StringListSize(char** list);
-int StringListIndexOf(char** list, char* str);
-void StringListRemoveDuplicates(char** list);
-void StringListReplaceInStrings(char** list, char* before, char* after);
-void StringListSort(char*** list);
 
 void StringListInit(char*** list) {
     *list = (char**)malloc(3*sizeof(char*));
+
+    //Check that memory was allocated
+    if(!(*list)) {
+        exit(-1);
+    }
+
     **list = NULL;
     *(*list + 1) = NULL; // pointer to the next node
     *(*list + 2) = NULL; // pointer to the previous node
@@ -34,6 +32,11 @@ void StringListDestroy(char*** list) {
 }
 
 void StringListAdd(char** list, char* str) {
+
+    if(!list) {
+        exit(-1);
+    }
+
     char** temp = list;
     if(!(*list)) {
         *list = (char*)malloc(sizeof(char) * (strlen(str) + 1));
@@ -54,6 +57,10 @@ void StringListAdd(char** list, char* str) {
 }
 
 void StringListRemove(char*** list, char* str) {
+    if (!(list)) {
+        exit(-1);
+    }
+
     char** temp = *list;
     char** nextNode = (char**) *(*list + 1);
     char** prevNode = (char**) *(*list + 2);
@@ -83,6 +90,10 @@ void StringListRemove(char*** list, char* str) {
 }
 
 int StringListSize(char** list) {
+    if (!list) {
+        exit(-1);
+    }
+
     int count = 0;
 
     while(list) {
@@ -94,6 +105,10 @@ int StringListSize(char** list) {
 }
 
 int StringListIndexOf(char** list, char* str) {
+    if (!list) {
+        exit(-1);
+    }
+
     int count = 0;
     while(list) {
         if(!strcmp(*list, str)) {
@@ -107,6 +122,10 @@ int StringListIndexOf(char** list, char* str) {
 }
 
 void StringListRemoveDuplicates(char** list) {
+    if (!list) {
+        exit(-1);
+    }
+
     char** nextNode;
     char** prevNode;
     char** temp;
@@ -132,6 +151,10 @@ void StringListRemoveDuplicates(char** list) {
 }
 
 void StringListReplaceInStrings(char** list, char* before, char* after) {
+    if (!list) {
+        exit(-1);
+    }
+
     char* substring;
     char* new_string;
     int before_length{int(strlen(before))};
@@ -166,6 +189,10 @@ void StringListReplaceInStrings(char** list, char* before, char* after) {
 }
 
 void StringListSort(char*** list) {
+    if (!list) {
+        exit(-1);
+    }
+
     char** nextNode;
     char** prevNode;
     char** temp;

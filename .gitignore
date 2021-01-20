@@ -1,3 +1,11 @@
 /cmake-build-debug
 /.idea
-/Google-tests
+/Google_tests
+/CMakeCache.txt
+/CMakeFiles
+/Main
+/Makefile
+/Testing
+/task1.cbp
+/cmake_install.cmake
+
